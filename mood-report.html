@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CognitusMind - Mood</title>
+    <link rel="stylesheet" href="styles/mood-report.css">
+</head>
+<body>
+    <div id="mood-report">  
+        <h1>Let's talk about</h1>
+
+        <div id="mood-report-content">
+            <h2>Mood</h2>
+
+            <form id="mood-survey">
+                <div class="questions">
+                    <label id="question-01">What best describes your mood today?</label>
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="mood" value="Depressed" required>
+                            <span class="icon">I feel depressed</span><br>
+                        </label>
+                        <label>
+                            <input type="radio" name="mood" value="Stressed">
+                            <span class="icon">I feel stressed</span><br>
+                        </label>
+                        <label>
+                            <input type="radio" name="mood" value="Anxious">
+                            <span class="icon">I feel anxious</span><br>
+                        </label>
+                        <label>
+                            <input type="radio" name="mood" value="Normal">
+                            <span class="icon">I feel normal</span><br>
+                        </label>
+                        <label>
+                            <input type="radio" name="mood" value="Happy">
+                            <span class="icon">I feel happy</span><br>
+                        </label>
+                        <label>
+                            <input type="radio" name="mood" value="Energized">
+                            <span class="icon">I feel energized</span><br><br><br>
+                        </label>
+                        <div id="comments">
+                            <label for="comment">Any comment?</label>
+                            <input type="text" id="comment" name="comment">
+                        </div>          
+                    </div>
+                    <br>
+                </div>
+                
+                <div id="report-button">
+                    <button id="submit-report-button" type="submit">Submit</button>
+                </div>
+            </form>
+            <div id="change-page-buttons">
+                <button class="simple-button" onclick="window.location.href='daily-report.html'">Go to reports</button>
+                <button class="simple-button" onclick="window.location.href='main-menu.html'">Go to main menu</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("mood-survey").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+
+            const mood = document.querySelector('input[name="mood"]:checked');
+            if (!mood) {
+                alert('Please select a mood'); 
+                return;
+            }
+
+            const moodValue = mood.value;
+            const comment = document.getElementById("comment").value;
+
+            const moodData = {
+                mood: moodValue,
+                comment: comment,
+            };
+
+            localStorage.setItem('moodData', JSON.stringify(moodData)); 
+
+            alert('Mood data saved successfully!'); 
+        });
+    </script>
+    <script src="scripts/script.js"></script>
+</body>
+</html>

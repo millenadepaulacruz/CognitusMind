@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CognitusMind - Play</title>
+    <link rel="stylesheet" href="styles/play.css">
+</head>
+<body>
+    <div id="game-screen">
+        <h1>Number Sorting</h1>
+        
+        <div id="score-timer">
+            <div id="score">Score: 0</div>
+            <div id="timer">Time: 0</div>
+        </div>
+
+        <h2 id="intro-text">
+            <br>Since you're feeling a bit stressed today, we recommend the Number Sorting game! 
+            
+            <br><br>The activity involves clicking on numbers from 1 to 25 in order, which helps train cognitive skills like attention, processing speed, and working memory. 
+            
+            <br><br> There’s no rush — the timer simply tracks how long you take and your progress, we combine it with your score and this allows us to align these values with your daily logs to provide personalized feedback. 
+            
+            <br><br>Take your time, focus on the task, and let the game help calm and relax your mind. 
+            
+            <br><br>Enjoy the experience!<br>
+        </h2>
+
+        <div id="board"></div>
+
+        <div id="buttons">
+            <button id="startBtn">Start Game</button>
+            <button id="restartBtn" style="display:none;">Restart Game</button>
+            <button onclick="window.location.href='main-menu.html'">Return to Main Menu</button>
+        </div>
+    </div>
+
+    <script>
+        let currentNumber = 1;
+        let score = 0;
+        let startTime = 0;
+        let timerInterval = null;
+        let lastClickTime = 0;  
+
+        const board = document.getElementById("board");
+        const scoreElement = document.getElementById("score");
+        const timerElement = document.getElementById("timer");
+        const startBtn = document.getElementById("startBtn");
+        const restartBtn = document.getElementById("restartBtn");
+
+        function generateBoard() {
+            console.log("Generating board...");  
+            board.innerHTML = ""; 
+
+
+            const numbers = [];
+            for (let i = 1; i <= 25; i++) {
+                numbers.push(i);
+            }
+
+            shuffleArray(numbers);
+
+            const tiles = numbers.map((number) => {
+                const tile = document.createElement("div");
+                tile.classList.add("tile");
+                tile.textContent = number;
+                tile.onclick = () => handleTileClick(tile);
+                return tile;
+            });
+
+            tiles.forEach(tile => {
+                board.appendChild(tile);
+                console.log("Appended tile: ", tile);  
+            });
+        }
+
+        function handleTileClick(tile) {
+            const tileNumber = parseInt(tile.textContent);
+
+            if (tileNumber !== currentNumber) {
+                return; 
+            }
+
+            const currentClickTime = Date.now(); 
+            const timeTaken = (currentClickTime - lastClickTime) / 1000;  
+
+            let points = 0;
+            if (timeTaken <= 1) {
+                points = 5;  
+            } else if (timeTaken <= 2) {
+                points = 3;  
+            } else {
+                points = 1;  
+            }
+
+            score += points;
+            scoreElement.textContent = "Score: " + score;
+
+            tile.classList.add("clicked");
+            currentNumber++;
+
+            if (currentNumber > 25) {
+                endGame();
+            }
+
+            lastClickTime = currentClickTime;
+        }
+
+        function updateTimer() {
+            const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+            timerElement.textContent = "Time: " + elapsedTime;
+        }
+
+        function startGame() {
+            const introText = document.getElementById("intro-text");
+            if (introText) {
+                introText.style.display = "none"; 
+            }
+            currentNumber = 1;
+            score = 0;
+            scoreElement.textContent = "Score: " + score;
+            startTime = Date.now();
+            lastClickTime = startTime; 
+            generateBoard();
+            timerInterval = setInterval(updateTimer, 1000);
+            startBtn.style.display = "none";
+            restartBtn.style.display = "block";
+        }
+
+        function endGame() {
+            clearInterval(timerInterval);
+            const timeTaken = Math.floor((Date.now() - startTime) / 1000);
+
+            const moodData = JSON.parse(localStorage.getItem('moodData'));
+            const sleepData = JSON.parse(localStorage.getItem('sleepData'));
+
+            const gameData = {
+                score: score,
+                timeTaken: timeTaken,
+                moodData: moodData,
+                sleepData: sleepData
+            };
+
+            localStorage.setItem('gameData', JSON.stringify(gameData)); 
+
+            alert("Congratulations! You've completed the game. Your final score is: " + score);
+
+            console.log('Game Data:', gameData); 
+        }
+
+        function restartGame() {
+            clearInterval(timerInterval);
+            startGame();
+        }
+
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]]; 
+            }
+        }
+
+        startBtn.onclick = startGame;
+        restartBtn.onclick = restartGame;
+    </script>
+
+</body>
+</html>

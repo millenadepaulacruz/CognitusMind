@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Text:ital@0;1&display=swap');
+/*DM Sans*/
+/*DM Serif Text */
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center; 
+    align-items: center;   
+    background-color: var(--colour05); 
+    font-family: 'DM Sans', sans-serif;
+}
+
+:root{
+    --colour01: #0E1626;
+    --colour02: #E4F2E7;
+    --colour03: #93BFB7;
+    --colour04: #387373;
+    --colour05: #2D3E40;
+}
+
+#daily-report {
+    width: 393px;  
+    height: 852px; 
+    background-color: var(--colour02); 
+    border: 1px solid #000;
+    border-radius: 40px; 
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3); 
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+    padding: 20px; 
+    box-sizing: border-box;
+    align-items: center; 
+}
+
+#daily-report h1{
+    color: var(--colour01);
+    font-family: 'DM Serif Text', serif;
+    margin-top: 75px;
+    font-size: 40px;
+}
+
+#daily-report p{
+    text-align: center;
+    color: var(--colour01);
+    margin-top: 80px;
+}
+
+#buttons{
+    top: 60%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, 200%);
+}
+
+button {
+    width: 180px;
+    height: 48px;
+    background-color: var(--colour04);
+    color: var(--colour02);
+    border-radius: 30px;
+    font-family: 'DM Serif Text', serif;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: var(--colour03);
+    transform: translateY(-2px);
+}
+
+

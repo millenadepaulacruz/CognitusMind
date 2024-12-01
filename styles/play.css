@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Text:ital@0;1&display=swap');
+/*DM Sans*/
+/*DM Serif Text */
+
+
+
+:root{
+    --colour01: #0E1626;
+    --colour02: #E4F2E7;
+    --colour03: #93BFB7;
+    --colour04: #387373;
+    --colour05: #2D3E40;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--colour05); 
+    color: var(--colour02);
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-family: 'DM Serif Text', serif;
+    font-size: 40px;
+    margin: 20px;
+    font-style: italic;
+    text-align: center;
+}
+
+h2{
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 200;
+}
+
+#game-screen {
+    width: 393px;  
+    height: 852px; 
+    background-color: var(--colour01); 
+    border: 1px solid #000;
+    border-radius: 40px; 
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3); 
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 20px; 
+    box-sizing: border-box;
+}
+
+#score-timer {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    font-size: 18px;
+    margin: 20px;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(5, 60px);
+    grid-gap: 10px;
+    margin: 20px;
+    justify-content: center;
+    align-content: center;
+}
+
+.tile {
+    width: 60px;
+    height: 60px; 
+    background-color: var(--colour04);
+    font-size: 24px;
+    color: var(--colour01);
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.tile.clicked {
+    background-color: var(--colour02);
+    color: var(--colour01);
+}
+
+.tile:hover {
+    background-color: var(--colour03);
+    transform: translateY(-2px);
+}
+
+#buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: auto; 
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 25px;
+    background-color: var(--colour04);
+    color: var(--colour02);
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'DM Serif Text', serif;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: var(--colour03);
+    transform: translateY(-2px);
+}

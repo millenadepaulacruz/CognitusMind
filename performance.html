@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CognitusMind - Performance Dashboard</title>
+    <link rel="stylesheet" href="styles/performance.css">
+</head>
+<body>
+    <div id="performance">
+        <h1>Performance Dashboard</h1>
+        <p id="explain">This is where we store all your sleep, mood, and game performance data.</p>
+        <div id="dashboard-content">
+            <div id="sleep-mood">
+                <h2>Sleep and mood data</h2>
+                <p><strong>Mood:</strong> <span id="mood">Loading...</span></p>
+                <p><strong>Sleep Quality:</strong> <span id="sleepQuality">Loading...</span></p>
+                <p><strong>Hours Slept:</strong> <span id="hoursSlept">Loading...</span></p>
+            </div>
+            <div id="game">
+                <h2>Game Performance</h2>
+                <p><strong>Game Score:</strong> <span id="score">Loading...</span></p>
+                <p><strong>Time Taken:</strong> <span id="timeTaken">Loading...</span> seconds</p>
+            </div>
+            <p id="feedback">
+                We will give you feedback at the end of each month!
+            </p>
+            <div id="buttons">
+                <button onclick="window.location.href='main-menu.html'">Return to main menu</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        const gameData = JSON.parse(localStorage.getItem('gameData'));
+        const sleepData = JSON.parse(localStorage.getItem('sleepData'));
+        const moodData = JSON.parse(localStorage.getItem('moodData'));
+
+        if (gameData) {
+            console.log('Dados recuperados:', gameData);
+
+            if (sleepData) {
+                document.getElementById('sleepQuality').textContent = sleepData.sleepQuality || "No sleep quality data";
+                document.getElementById('hoursSlept').textContent = sleepData.hoursSlept || "No sleep data";
+            } else {
+                document.getElementById('sleepQuality').textContent = "No sleep data found.";
+                document.getElementById('hoursSlept').textContent = "No sleep data found.";
+            }
+
+            if (moodData) {
+                document.getElementById('mood').textContent = moodData.mood || "No mood data";
+            } else {
+                document.getElementById('mood').textContent = "No mood data found.";
+            }
+
+            document.getElementById('score').textContent = gameData.score || "No game score";
+            document.getElementById('timeTaken').textContent = gameData.timeTaken || "No time data";
+        } else {
+            console.log('No game data found.');
+            document.getElementById('mood').textContent = "No mood data found.";
+            document.getElementById('sleepQuality').textContent = "No sleep data found.";
+            document.getElementById('hoursSlept').textContent = "No sleep data found.";
+            document.getElementById('score').textContent = "No score data found.";
+            document.getElementById('timeTaken').textContent = "No time data found.";
+        }
+    </script>
+</body>
+</html>

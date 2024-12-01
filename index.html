@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CognitusMind</title>
+    <link rel="shortcut icon" href="images/favicon_io/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="start-screen" id="start-screen">
+        <div class="start-content">
+            CognitusMind
+        </div>
+    </div>
+
+    <div id="loading-screen" style="display: none;">
+        <div class="loading-header">
+            Did you know?
+        </div>
+
+        <div id="loading-content">
+            <p id="did-you-know"></p>
+        </div>
+        
+        <div id="skip-container">
+            <button id="skip-button" onclick="window.location.href='login-screen.html'">Skip</button>
+        </div>
+    </div>
+    
+    <script>
+        // shows login screen
+        window.addEventListener("load", function () {
+            setTimeout(function () {
+                document.getElementById("start-screen").style.display = "none"; 
+                document.getElementById("loading-screen").style.display = "block"; 
+            }, 2000); 
+        });
+    
+        // defines did you know message
+        const facts = [
+            "Hormones such as growth hormone, melatonin, cortisol, leptin, and ghrelin are closely associated with sleep and circadian rhythmicity.",
+            "At night, your levels of melatonin rise, before returning to normal during the day.",
+            "Cortisol helps wake you up and keep you awake.",
+            "Sleep duration below 7h was associated with decreased leptin and increased ghrelin concentrations and consequently an increased body mass. These researchers suggested that a leptin deficiency increases appetite and consequently may cause obesity.",
+            "Cortisol is the hormone that regulates the body's stress response.",
+            "Increased levels of cortisol have been associated with poorer cognitive functioning, accelerated cognitive ageing and Alzheimer's disease.",
+            "Dopamine plays a role as a “reward center” and in many body functions, including memory, movement, motivation, mood, attention and more.",
+            "High or low dopamine levels are associated with diseases including Parkinson's disease, restless legs syndrome and attention deficit hyperactivity disorder (ADHD).",
+            "Dopamine is particularly known as being the 'happy hormone' and it is responsible for our experiencing happiness.",
+            "Adrenaline is a hormone your adrenal glands send through your bloodstream. When you're scared or stressed suddenly, adrenaline is quickly sent into your body.",
+            "Adrenaline makes your heartbeat faster and your lungs breathe more efficiently.",
+            "Use yellow light instead of blue light before bed to wind down and positively influence your circadian rhythms.",
+            "Cortisol, the 'stress hormone' isn't always bad! In short bursts, it boosts energy, sharpens focus, and enhances memory to help you tackle challenges. But too much stress? That’s when it can drain your body and mind. Balance is the key!"
+        ];
+    
+        // random fact 
+        document.getElementById("did-you-know").textContent =
+            facts[Math.floor(Math.random() * facts.length)];
+    </script>
+
+
+    
+
+    <script src="scripts/script.js"></script>
+</body>
+</html>

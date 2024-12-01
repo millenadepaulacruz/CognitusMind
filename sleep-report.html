@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CognitusMind - Sleep</title>
+    <link rel="stylesheet" href="styles/sleep-report.css">
+</head>
+<body>
+    <div id="sleep-report">
+        <h1>Let's talk about</h1>
+    
+        <div id="sleep-report-content">
+            <h2>sleep</h2>
+    
+            <div id="date">
+                <p>Today is: </p>
+                <p id="date-today"></p>
+            </div>
+            <form id="sleep-survey" action="mood-report.html" method="POST">
+                <div class="questions">
+                    <label id="question-01">How did you sleep last night?</label>
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="sleep-quality" value="Slept great" required>
+                            <span class="icon">I slept great</span><br>
+                        </label>
+                        <label>
+                            <input type="radio" name="sleep-quality" value="Slept ok">
+                            <span class="icon">I slept ok</span><br>
+                        </label>
+                        <label>
+                            <input type="radio" name="sleep-quality" value="Bad night's sleep">
+                            <span class="icon">I had a bad night's sleep</span><br><br><br>
+                        </label>
+                        <label id="question-02">How long did you sleep for?</label>
+                        <label>
+                            <input type="radio" name="sleep-duration" value="Less than 4 hours" required>
+                            <span class="icon">Less than 4 hours</span><br>
+                        </label>
+                        <label>
+                            <input type="radio" name="sleep-duration" value="Less than 6 hours">
+                            <span class="icon">Less than 6 hours</span><br>
+                        </label>
+                        <label>
+                            <input type="radio" name="sleep-duration" value="Between 6 and 8 hours">
+                            <span class="icon">Between 6 and 8 hours</span><br>
+                        </label>
+                        <label>
+                            <input type="radio" name="sleep-duration" value="More than 8 hours">
+                            <span class="icon">More than 8 hours</span><br> <br>
+                        </label>
+                    </div>
+    
+                    <div id="comments">
+                        <label for="comment">Any comment?</label>
+                        <input type="text" id="comment" name="comment">
+                    </div>
+                </div>
+    
+                <div id="mood-report-button">
+                    <button type="submit">Register sleep</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        var today = new Date();
+
+        var day = String(today.getDate()).padStart(2, '0'); 
+        var month = String(today.getMonth() + 1).padStart(2, '0'); 
+        var year = today.getFullYear();
+        var formattedDate = day + '/' + month + '/' + year;
+
+        document.getElementById("date-today").textContent = formattedDate;
+
+        document.getElementById("sleep-survey").addEventListener("submit", function(event) {
+        event.preventDefault(); 
+
+        const sleepQuality = document.querySelector('input[name="sleep-quality"]:checked').value;
+        const sleepDuration = document.querySelector('input[name="sleep-duration"]:checked').value;
+        const comment = document.getElementById("comment").value;
+
+        const sleepData = {
+            sleepQuality: sleepQuality,
+            hoursSlept: sleepDuration,
+            comment: comment
+        };
+
+        localStorage.setItem('sleepData', JSON.stringify(sleepData));
+
+        alert('Sleep data saved successfully!'); 
+        window.location.href = "mood-report.html"; 
+    });
+    </script>
+
+    <script src="scripts/script.js"></script>
+    
+</body>
+</html>
