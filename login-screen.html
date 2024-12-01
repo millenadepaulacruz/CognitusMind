@@ -26,12 +26,24 @@
                             <input type="password" id="password" name="password" required>
                         </div>
 
-                        <button type="submit" id="login-button" onclick="window.location.href='daily-report.html'">Login</button>
+                        <button type="submit" id="login-button">Login</button>
                         <div class="forgot-password-link">
                             <a href="forgot-password.html" id="reset-password-link">Forgot password?</a>
                         </div>
                     </form>
                 </div>
+                <script>
+                    function saveData(event) {
+                        event.preventDefault();
+                        const username = document.getElementById('username').value;
+                        const password = document.getElementById('password').value;
+            
+                        localStorage.setItem('username', username);
+                        localStorage.setItem('password', password);
+            
+                        window.location.href = 'main-menu.html';
+                    }
+                </script>
         </div>
     </div>
 </body>
