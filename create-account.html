@@ -17,7 +17,7 @@
                     <a href="login-screen.html" id="login-link">Sign in</a>
                 </div>
                 <div class="create-form-div">
-                    <form id="create-account-form" action="main-menu.html" method="POST">
+                    <form id="create-account-form" onsubmit="saveData(event)">
                         <div class="form-group">
                             <label for="username">Username</label>
                             <input type="text" id="username" name="username" required>
