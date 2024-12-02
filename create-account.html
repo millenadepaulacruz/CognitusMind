@@ -37,6 +37,23 @@
                     </form>
                 </div>
         </div>
-    </div>   
+    </div>
+    <script>
+        function saveData(event) {
+            event.preventDefault(); 
+
+            const username = document.getElementById('username').value;
+            const username = document.getElementById('full-name').value;
+            const password = document.getElementById('password').value;
+
+            localStorage.setItem('username', password);
+            localStorage.setItem('full-name', username);
+            localStorage.setItem('password', password);
+
+            setTimeout(() => {
+                window.location.href = './main-menu.html';
+            }, 100);
+        }
+    </script>   
 </body>
 </html>
