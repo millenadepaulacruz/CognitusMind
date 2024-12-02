@@ -102,16 +102,8 @@ form {
     text-align: left;
 }
 
-input[type="username"] {
-    width: 275px;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    margin-top: 8px;
-}
-
-input[type="password"] {
+input[type="password"], 
+input[type="text"] {
     width: 275px;
     padding: 12px;
     border: none;
