@@ -37,3 +37,24 @@ p{
     padding: 10px;
     border-radius: 12px;
 }
+
+button{
+    background-color:var(--colour04);
+    color: var(--colour02);
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px;
+    transition: background-color 0.3s;
+    font-family: 'DM Serif Text', serif; 
+    font-weight: 300;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+button:hover {
+    background-color: var(--colour03);
+    transform: translateY(-2px);
+}
