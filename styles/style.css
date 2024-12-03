@@ -112,7 +112,7 @@ p#did-you-know{
     justify-content: center; 
     align-items: flex-end; 
     height: 30%;
-    padding-bottom: 50px; 
+    margin-top: 50px;
 }
 
 #skip-button {
