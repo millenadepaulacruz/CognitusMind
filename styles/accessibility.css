@@ -23,6 +23,7 @@ body {
 h1{
     font-family: 'DM Serif Text', serif;
     color: var(--colour02);
+    font-size: 40px;
 }
 
 #content{
