@@ -25,6 +25,11 @@ h1{
     color: var(--colour02);
 }
 
+#content{
+    display: flex;
+    flex-direction: column;
+}
+
 p{
     background-color: var(--colour02);
     color: var(--colour01);
