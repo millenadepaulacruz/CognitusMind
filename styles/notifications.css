@@ -15,7 +15,7 @@
 body {
     font-family: 'DM Sans', sans-serif;
     background-color: var(--colour05); 
-    color: var(--colour02);
+    color: var(--colour01);
     margin: 0;
     height: 100vh;
     display: flex;
@@ -23,7 +23,12 @@ body {
     align-items: center;
 }
 
-#reminder {
+h1{
+    font-family: 'DM Serif Text', serif;
+    font-size: 40px;
+}
+
+.notifications {
     width: 393px;  
     height: 852px; 
     background-color: var(--colour02); 
@@ -36,38 +41,72 @@ body {
     align-items: center; 
     padding: 20px; 
     box-sizing: border-box;
-    text-align: left;
-    position: relative;
+    text-align: center;
 }
 
-h1{
-    font-family: 'DM Serif Text', serif;
-    font-size: 35px;
-    color: var(--colour01);
+.content{
+    width: 300px;
+    height: 510px;
+    border-radius: 25px;
+    margin-top: 30px;
+    background-color: var(--colour01);
+    color: var(--colour02);
 }
+
+#p-01{
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 200;
+    padding: 15px;
+    margin-top: 40px;
+}
+
+#p-02{
+    font-size: 18px;
+    font-weight: 200;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+#set-notification{
+    padding: 10px;
+}
+
+input[type="radio"]{
+    background-color: var(--colour02);
+    cursor: pointer;
+}
+
+span.icon{
+    font-weight: bold;
+}
+
 
 .buttons{
-    position: absolute;
-    top: 200px;
-    left: 65px;
+    display: flex;
+    gap: 10px;
+    position: relative;
+    top: 70px;
+}
+#save-button{
+    margin-top: 40px;
 }
 
-button{
-    width: 220px;
-    height: 100px;
-    margin: 25px;
+button, #save-button{
+    width: 180px;
+    height: 50px;
     background-color: var(--colour04);
     color: var(--colour02);
     border-radius: 30px;
     font-family: 'DM Serif Text', serif;
-    font-size: 20px;
+    font-size: 18px;
     border: none; 
     cursor: pointer; 
     box-shadow: inset 11px 11px 12px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s, transform 0.3s;
 }
 
-button:hover{
+button:hover, #save-button:hover{
     background-color: var(--colour03);
     transform: translateY(-2px);
 }

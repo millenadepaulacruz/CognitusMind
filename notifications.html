@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CognitusMind - Notifications</title>
+    <link rel="shortcut icon" href="images/favicon_io/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/notifications.css">
+</head>
+<body>
+    <div class="notifications">
+
+        <h1>Notifications</h1>
+
+        <div class="content">
+
+            <p id="p-01">How about setting an alert for you?</p>
+            <p id="p-02">This is how we we will remind you to register your sleep and mood data and to play puzzles! <br><br>You can change your preference at any time!</p>
+
+            <div id="set-notification">
+                <label>
+                    <input type="radio" id="active" name="notification" required>
+                    <span class="icon">Yes, please!</span><br>
+                </label>
+                <label>
+                    <input type="radio" id="inactive" name="notification">
+                    <span class="icon">No, thanks!</span><br>
+                </label>
+                <button id="save-button" type="submit" onclick="alert('Your changes have been saved!')">Save changes</button>
+            </div>
+        </div>
+        <div class="buttons">
+            <button onclick="window.location.href='settings.html'">Return to settings</button>
+            <button onclick="window.location.href='main-menu.html'">Go to main menu</button>
+        </div>
+    </div>
+</body>
+</html>
