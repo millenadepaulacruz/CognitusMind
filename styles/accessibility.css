@@ -24,6 +24,7 @@ h1{
     font-family: 'DM Serif Text', serif;
     color: var(--colour02);
     font-size: 40px;
+    text-align: center;
 }
 
 #content{
@@ -36,6 +37,12 @@ p{
     color: var(--colour01);
     padding: 10px;
     border-radius: 12px;
+}
+
+#buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
 
 button{
@@ -52,7 +59,6 @@ button{
     transition: background-color 0.3s, transform 0.3s;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
-
 
 button:hover {
     background-color: var(--colour03);
