@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Text:ital@0;1&display=swap');
+/*DM Sans*/
+/*DM Serif Text */
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center; 
+    align-items: center;   
+    background-color: var(--colour05); 
+    font-family: 'DM Sans', sans-serif;
+}
+
+:root{
+    --colour01: #0E1626;
+    --colour02: #E4F2E7;
+    --colour03: #93BFB7;
+    --colour04: #387373;
+    --colour05: #2D3E40;
+}
+
+h1{
+    font-family: 'DM Serif Text', serif;
+    color: var(--colour02);
+}
+
+p{
+    background-color: var(--colour02);
+    color: var(--colour01);
+    padding: 10px;
+    border-radius: 12px;
+}
