@@ -15,16 +15,16 @@
             <div id="sleep-mood">
                 <h2>Sleep and mood data</h2>
                 <p><strong>Mood:</strong> <span id="mood">Loading...</span></p>
-                <p><strong>Sleep Quality:</strong> <span id="sleepQuality">Loading...</span></p>
-                <p><strong>Hours Slept:</strong> <span id="hoursSlept">Loading...</span></p>
+                <p><strong>Sleep quality:</strong> <span id="sleepQuality">Loading...</span></p>
+                <p><strong>Hours slept:</strong> <span id="hoursSlept">Loading...</span></p>
             </div>
             <div id="game">
                 <h2>Game Performance</h2>
-                <p><strong>Game Score:</strong> <span id="score">Loading...</span></p>
-                <p><strong>Time Taken:</strong> <span id="timeTaken">Loading...</span> seconds</p>
+                <p><strong>Game score:</strong> <span id="score">Loading...</span></p>
+                <p><strong>Time taken (in seconds):</strong> <span id="timeTaken">Loading...</span> </p>
             </div>
             <p id="feedback">
-                We will give you feedback at the end of each month!
+                We will give you a feedback at the end of each month!
             </p>
             <div id="buttons">
                 <button onclick="window.location.href='main-menu.html'">Return to main menu</button>
@@ -39,7 +39,7 @@
         const moodData = JSON.parse(localStorage.getItem('moodData'));
 
         if (gameData) {
-            console.log('Dados recuperados:', gameData);
+            console.log('recovered data:', gameData);
 
             if (sleepData) {
                 document.getElementById('sleepQuality').textContent = sleepData.sleepQuality || "No sleep quality data";

@@ -54,10 +54,6 @@
                     <button id="submit-report-button" type="submit">Submit</button>
                 </div>
             </form>
-            <div id="change-page-buttons">
-                <button class="simple-button" onclick="window.location.href='daily-report.html'">Go to reports</button>
-                <button class="simple-button" onclick="window.location.href='main-menu.html'">Go to main menu</button>
-            </div>
         </div>
     </div>
 
@@ -82,6 +78,7 @@
             localStorage.setItem('moodData', JSON.stringify(moodData)); 
 
             alert('Mood data saved successfully!'); 
+            window.location.href = "daily-report.html";
         });
     </script>
     <script src="scripts/script.js"></script>
