@@ -9,13 +9,84 @@
 </head>
 <body>
     
-    <div id="content">
+    <div class="accessibility">
+
         <h1>Accessibility</h1>
-        <p>This page is still under development...</p>
-        <div id="buttons">
+
+        <div class="content">
+
+            <p id="p-01">Here, you can customize settings to improve your experience based on your needs.</p>
+
+            <div id="text-size">
+                <label id="adjust-text-size">Adjust Text Size</label>
+                <label>
+                    <span class="icon">Small</span>
+                    <input type="radio" id="small" name="text-size" required>
+                </label>   
+                <label>
+                    <span class="icon">Medim (Default)</span>
+                    <input type="radio" id="medium" name="text-size" required>
+                </label>  
+                <label>  
+                    <span class="icon">Large</span>
+                    <input type="radio" id="large" name="text-size" required>
+                </label>
+                <label>
+                    <span class="icon">Extra Large</span>
+                    <input type="radio" id="extra-large" name="text-size" required>
+                </label>
+            </div>
+            
+            <div id="colour-blindness">
+                <label id="colour-blindness-modes">Colour Blindness Modes</label>
+                <label>
+                    <span class="icon">Default</span>
+                    <input type="radio" id="default" name="colour-blindness" required>
+                </label> 
+                <label>  
+                    <span class="icon">Protanopia (Red-Blind)</span>
+                    <input type="radio" id="protanopia" name="colour-blindness" required>
+                </label> 
+                <label>   
+                    <span class="icon">Deuteranopia (Green-Blind)</span>
+                    <input type="radio" id="deuteranopia" name="colour-blindness" required>
+                </label> 
+                <label>
+                    <span class="icon">Tritanopia (Blue-Blind)</span>
+                    <input type="radio" id="tritanopia" name="colour-blindness" required>
+                </label>
+            </div>
+
+            <div id="high-contrast">
+                <label id="high-contrast-modes">High Contrast Modes</label>
+                <label>
+                    <span class="icon">On</span>
+                    <input type="radio" id="on" name="high-contrast" required>
+                </label>    
+                <label>
+                    <span class="icon">Off</span>
+                    <input type="radio" id="off" name="high-contrast" required>
+                </label>  
+            </div>
+
+            <div id="text-to-speech">
+                <label id="enable-tts">Text-To-Speech</label>
+                <label>
+                    <span class="icon">On</span>
+                    <input type="radio" id="on" name="text-to-speech" required>
+                </label>    
+                <label>
+                    <span class="icon">Off</span>
+                    <input type="radio" id="off" name="text-to-speech" required>
+                </label>  
+            </div>
+            <div id="save-options">
+                <button id="save-button" type="submit" onclick="alert('Your changes have been saved!')">Save options</button>
+            </div>
+        </div>
+        <div class="buttons">
             <button onclick="window.location.href='settings.html'">Return to settings</button>
             <button onclick="window.location.href='main-menu.html'">Go to main menu</button>
         </div>
-    </div>
 </body>
 </html>

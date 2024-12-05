@@ -14,14 +14,16 @@
         <div id="dashboard-content">
             <div id="sleep-mood">
                 <h2>Sleep and mood data</h2>
-                <p><strong>Mood:</strong> <span id="mood">Loading...</span></p>
-                <p><strong>Sleep quality:</strong> <span id="sleepQuality">Loading...</span></p>
-                <p><strong>Hours slept:</strong> <span id="hoursSlept">Loading...</span></p>
+                <p>Mood: <span id="mood">Loading...</span></p>
+                <p>Comments: <span id="mood-comment">Loading...</span></p><br>
+                <p>Sleep quality: <span id="sleepQuality">Loading...</span></p>
+                <p>Hours slept: <span id="hoursSlept">Loading...</span></p>
+                <p>Comments: <span id="sleep-comment">Loading...</span></p>
             </div>
             <div id="game">
                 <h2>Game Performance</h2>
-                <p><strong>Game score:</strong> <span id="score">Loading...</span></p>
-                <p><strong>Time taken (in seconds):</strong> <span id="timeTaken">Loading...</span> </p>
+                <p>Game score: <span id="score">Loading...</span></p>
+                <p>Time taken (in seconds): <span id="timeTaken">Loading...</span> </p>
             </div>
             <p id="feedback">
                 We will give you a feedback at the end of each month!
@@ -44,15 +46,19 @@
             if (sleepData) {
                 document.getElementById('sleepQuality').textContent = sleepData.sleepQuality || "No sleep quality data";
                 document.getElementById('hoursSlept').textContent = sleepData.hoursSlept || "No sleep data";
+                document.getElementById('sleep-comment').textContent = sleepData.comment || "No comments";
             } else {
                 document.getElementById('sleepQuality').textContent = "No sleep data found.";
                 document.getElementById('hoursSlept').textContent = "No sleep data found.";
+                document.getElementById('sleep-comment').textContent = "No comments found.";
             }
 
             if (moodData) {
                 document.getElementById('mood').textContent = moodData.mood || "No mood data";
+                document.getElementById('mood-comment').textContent = moodData.comment || "No comments";
             } else {
                 document.getElementById('mood').textContent = "No mood data found.";
+                document.getElementById('mood-comment').textContent = "No comments found.";
             }
 
             document.getElementById('score').textContent = gameData.score || "No game score";
@@ -60,10 +66,12 @@
         } else {
             console.log('No game data found.');
             document.getElementById('mood').textContent = "No mood data found.";
+            document.getElementById('mood-comment').textContent = "No comments found."
             document.getElementById('sleepQuality').textContent = "No sleep data found.";
             document.getElementById('hoursSlept').textContent = "No sleep data found.";
             document.getElementById('score').textContent = "No score data found.";
             document.getElementById('timeTaken').textContent = "No time data found.";
+            document.getElementById('sleep-comment').textContent = "No comments found.";
         }
     </script>
 </body>

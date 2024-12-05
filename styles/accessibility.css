@@ -2,14 +2,16 @@
 /*DM Sans*/
 /*DM Serif Text */
 
+
 body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--colour05); 
+    color: var(--colour01);
     margin: 0;
     height: 100vh;
     display: flex;
-    justify-content: center; 
-    align-items: center;   
-    background-color: var(--colour05); 
-    font-family: 'DM Sans', sans-serif;
+    justify-content: center;
+    align-items: center;
 }
 
 :root{
@@ -22,27 +24,76 @@ body {
 
 h1{
     font-family: 'DM Serif Text', serif;
-    color: var(--colour02);
     font-size: 40px;
     text-align: center;
 }
 
-#content{
+p{
+    color: var(--colour02);
+    font-size: 14px;
+    margin: 13px;
+    font-weight: 200;
+}
+
+.accessibility {
+    width: 393px;  
+    height: 852px; 
+    background-color: var(--colour02); 
+    border: 1px solid #000;
+    border-radius: 40px; 
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3); 
+    overflow: hidden; 
     display: flex;
     flex-direction: column;
+    align-items: center; 
+    padding: 20px; 
+    box-sizing: border-box;
+    text-align: center;
 }
 
-p{
-    background-color: var(--colour02);
-    color: var(--colour01);
+.content{
+    width: 320px;
+    height: 620px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    background-color: var(--colour01);
+    color: var(--colour02);
+}
+
+#adjust-text-size, #colour-blindness-modes, #high-contrast-modes, #enable-tts{
+    font-family: 'DM Serif Text', serif;
+    font-size: 18px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
     padding: 10px;
-    border-radius: 12px;
 }
 
-#buttons{
+#text-size, #colour-blindness, #high-contrast, #text-to-speech{
+    display: contents;
+    font-size: 15px;
+}
+
+label{
+    text-align: left;
+    margin: 2px;
+    padding-left: 10px;
+}
+
+input{
+    cursor: pointer;
+    position: absolute; 
+    right: 42%; 
+}
+
+
+.buttons{
     display: flex;
     flex-direction: row;
     gap: 10px;
+    padding-top: 30px;
 }
 
 button{
@@ -58,6 +109,14 @@ button{
     font-weight: 300;
     transition: background-color 0.3s, transform 0.3s;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#save-button{
+    width: 145px;
+}
+
+#save-options{
+    margin-top: 10px;
 }
 
 button:hover {
